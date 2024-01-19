@@ -3,7 +3,6 @@ class CayleyTable:
         self.table = table
         self.size = len(table)
 
-    # От сих пор вроде все нормик, но над перечекать, тыж еблан
     def is_associative(self):
         for i in range(self.size):
             for j in range(self.size):
@@ -27,7 +26,6 @@ class CayleyTable:
                         return False
         return True
 
-    # Отсюда идет залупа, перечекай формулы
     def has_identity_element(self):
         for i in range(self.size):
             has_identity = all(self.table[i][j] == j and self.table[j][i] == j for j in range(self.size))
@@ -83,6 +81,5 @@ print("сложение скаляра:", cayley_table.has_scalar_addition())
 print("Множение на единичную матрицу:", cayley_table.has_identity_matrix_multiplication())
 print("Транспонирование:", cayley_table.has_transposition(), "\n")
 
-# Бля и все? Ебануто маленькое задание, перепроверь
 print("\nTask 2: по таблице Кели найти нормальные подгруппы")
 print("Нормальные подгруппы:", cayley_table.find_normal_subgroups())
